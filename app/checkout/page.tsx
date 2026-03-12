@@ -87,7 +87,7 @@ export default function CheckoutPage() {
           href="/"
           className="inline-flex items-center gap-2 bg-forest text-white rounded-full px-6 py-3 font-semibold text-sm hover:bg-leaf transition-colors"
         >
-          <ArrowLeft className="h-4 w-4" /> Continue Shopping
+          <ArrowLeft className="h-4 w-4" /> Continue Shopping!
         </Link>
       </div>
     );
