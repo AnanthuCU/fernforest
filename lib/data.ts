@@ -2,13 +2,13 @@ import type { Product, Plan } from "@/types";
 
 export const VARIETIES: Product[] = [
   {
-    id: "radish",
-    name: "Radish",
-    slug: "radish",
+    id: "white-radish",
+    name: "White Radish",
+    slug: "white-radish",
     category: "variety",
     latinName: "Raphanus sativus",
     description:
-      "A detox powerhouse with a peppery punch. Available in White, China Rose, and Purple varieties.",
+      "A detox powerhouse with a peppery punch. Enjoy the crisp bite of white radish.",
     benefits: [
       "Fat Loss & Detox",
       "Boosts metabolism",
@@ -20,7 +20,51 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 140 },
     ],
     image:
-      "https://images.unsplash.com/photo-1614515993243-6a2f7e3db42a?w=600&q=80",
+      "/images/microgreens/whiteradish.png",
+    badge: "Detox",
+  },
+  {
+    id: "china-rose-radish",
+    name: "China Rose Radish",
+    slug: "china-rose-radish",
+    category: "variety",
+    latinName: "Raphanus sativus",
+    description:
+      "A vibrant detox booster with a smooth peppery kick. China Rose offers a balanced crunch with a refreshing, mildly sweet finish.",
+    benefits: [
+      "Fat Loss & Detox",
+      "Boosts metabolism",
+      "Supports digestion",
+      "High in Vitamin C",
+    ],
+    sizes: [
+      { label: "40g", price: 90 },
+      { label: "80g", price: 180 },
+    ],
+    image:
+      "/images/microgreens/chinaroseradish.png",
+    badge: "Detox",
+  },
+  {
+    id: "purple-radish",
+    name: "Purple Tsango Radish",
+    slug: "purple-radish",
+    category: "variety",
+    latinName: "Raphanus sativus",
+    description:
+      "A bold detox powerhouse with an intense peppery heat. Purple radish delivers a sharper bite for those who enjoy a stronger, spicier crunch.",
+    benefits: [
+      "Fat Loss & Detox",
+      "Boosts metabolism",
+      "Supports digestion",
+      "High in Vitamin C",
+    ],
+    sizes: [
+      { label: "40g", price: 115 },
+      { label: "80g", price: 230 },
+    ],
+    image:
+      "/images/microgreens/purpleradish.png",
     badge: "Detox",
   },
   {
@@ -42,17 +86,17 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 220 },
     ],
     image:
-      "https://images.unsplash.com/photo-1566305977571-5666dc0e7bf2?w=600&q=80",
+      "/images/microgreens/sunflower.png",
     badge: "Protein",
   },
   {
-    id: "amaranthus",
-    name: "Amaranthus",
-    slug: "amaranthus",
+    id: "green-amaranthus",
+    name: "Green Amaranthus",
+    slug: "green-amaranthus",
     category: "variety",
     latinName: "Amaranthus",
     description:
-      "Rich in iron and antioxidants. Available in Green and Red Garnet varieties for superior oxygen delivery.",
+      "Rich in iron and antioxidants. Supports superior oxygen delivery with vibrant green leaves.",
     benefits: [
       "High Iron",
       "Better oxygen delivery",
@@ -60,11 +104,33 @@ export const VARIETIES: Product[] = [
       "Supports nitric oxide",
     ],
     sizes: [
-      { label: "40g", price: 75 },
+      { label: "40g", price: 85 },
       { label: "80g", price: 150 },
     ],
     image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+      "/images/microgreens/greenamaranthus.png",
+    badge: "Iron-Rich",
+  },
+  {
+    id: "red-garnet-amaranthus",
+    name: "Red Garnet Amaranthus",
+    slug: "red-garnet-amaranthus",
+    category: "variety",
+    latinName: "Amaranthus",
+    description:
+      "Rich in iron and antioxidants. Stunning red leaves that support superior oxygen delivery.",
+    benefits: [
+      "High Iron",
+      "Better oxygen delivery",
+      "Antioxidant rich",
+      "Supports nitric oxide",
+    ],
+    sizes: [
+      { label: "40g", price: 160 },
+      { label: "80g", price: 240 },
+    ],
+    image:
+      "/images/microgreens/redgarnetamaranthus.png",
     badge: "Iron-Rich",
   },
   {
@@ -86,7 +152,7 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 360 },
     ],
     image:
-      "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=600&q=80",
+      "/images/microgreens/beetroot.png",
     badge: "Endurance",
   },
   {
@@ -108,7 +174,7 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 390 },
     ],
     image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&q=80",
+      "/images/microgreens/broccoli.png",
     badge: "Anti-Inflam.",
   },
   {
@@ -130,7 +196,7 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 270 },
     ],
     image:
-      "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+      "/images/microgreens/bokchoy.png",
     badge: "Joints",
   },
   {
@@ -152,7 +218,7 @@ export const VARIETIES: Product[] = [
       { label: "80g", price: 300 },
     ],
     image:
-      "https://images.unsplash.com/photo-1618375569909-3c8616cf7733?w=600&q=80",
+      "/images/microgreens/basil.png",
     badge: "Stress Relief",
   },
 ];
@@ -171,7 +237,7 @@ export const MIXES: Product[] = [
       { label: "80g", price: 240 },
     ],
     image:
-      "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+      "/images/microgreens/fatlossmix.png",
     badge: "Fat Loss",
   },
   {
@@ -187,7 +253,7 @@ export const MIXES: Product[] = [
       { label: "80g", price: 240 },
     ],
     image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+      "/images/microgreens/musclerecoverymix.png",
     badge: "Recovery",
   },
   {
@@ -203,7 +269,7 @@ export const MIXES: Product[] = [
       { label: "80g", price: 280 },
     ],
     image:
-      "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=600&q=80",
+      "/images/microgreens/pumpperformancemix.png",
     badge: "Performance",
   },
   {
@@ -219,7 +285,7 @@ export const MIXES: Product[] = [
       { label: "80g", price: 260 },
     ],
     image:
-      "https://images.unsplash.com/photo-1618375569909-3c8616cf7733?w=600&q=80",
+      "/images/microgreens/stresshormonebalancemix.png",
     badge: "Hormones",
   },
   {
@@ -235,7 +301,7 @@ export const MIXES: Product[] = [
       { label: "80g", price: 320 },
     ],
     image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&q=80",
+      "/images/microgreens/allinonemix.png",
     badge: "Elite",
     featured: true,
   },
@@ -254,7 +320,7 @@ export const PLANS: Plan[] = [
     frequency: "1 × 40g mix/week",
     includes: ["Fat Loss Mix", "Muscle Recovery Mix"],
     image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
+      "/images/microgreens/musclerecoverymix.png",
   },
   {
     id: "transformation-plan",
@@ -269,7 +335,7 @@ export const PLANS: Plan[] = [
     includes: ["Pump & Performance Mix"],
     featured: true,
     image:
-      "https://images.unsplash.com/photo-1566305977571-5666dc0e7bf2?w=600&q=80",
+      "/images/microgreens/pumpperformancemix.png",
   },
   {
     id: "preworkout-plan",
@@ -283,7 +349,7 @@ export const PLANS: Plan[] = [
     frequency: "1 × 40g mix/week",
     includes: ["Pump & Performance Mix"],
     image:
-      "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=600&q=80",
+      "/images/microgreens/pumpperformancemix.png",
   },
   {
     id: "performance-pro-plan",
@@ -297,7 +363,7 @@ export const PLANS: Plan[] = [
     frequency: "2 × 80g mix/week",
     includes: ["Muscle Recovery Mix", "Pump & Performance Mix"],
     image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&q=80",
+      "/images/microgreens/pumpperformancemix.png",
   },
   {
     id: "fat-loss-reset-plan",
@@ -311,7 +377,7 @@ export const PLANS: Plan[] = [
     frequency: "1 × 80g mix/week",
     includes: ["Fat Loss Mix"],
     image:
-      "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+      "/images/microgreens/fatlossmix.png",
   },
   {
     id: "allinone-elite-plan",
@@ -325,7 +391,7 @@ export const PLANS: Plan[] = [
     frequency: "1 × 80g mix/week",
     includes: ["All-in-One Performance Mix"],
     image:
-      "https://images.unsplash.com/photo-1618375569909-3c8616cf7733?w=600&q=80",
+      "/images/microgreens/allinonemix.png",
   },
 ];
 

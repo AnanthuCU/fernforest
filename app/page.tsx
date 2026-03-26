@@ -71,7 +71,7 @@ export default function HomePage() {
         <div className="grid grid-cols-2 order-1 lg:order-2 min-h-64 lg:min-h-0">
           <div className="relative col-span-1 row-span-2">
             <Image
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85"
+              src="/images/microgreens/greenamaranthus.png"
               alt="Fresh microgreens in hand"
               fill
               className="object-cover"
@@ -81,7 +81,7 @@ export default function HomePage() {
           </div>
           <div className="relative overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80"
+              src="/images/microgreens/redgarnetamaranthus.png"
               alt="Microgreens close up"
               fill
               className="object-cover"
@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
           <div className="relative overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=600&q=80"
+              src="/images/microgreens/beetroot.png"
               alt="Beetroot microgreens"
               fill
               className="object-cover"

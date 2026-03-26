@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, Menu, X, Leaf } from "lucide-react";
 import { useCartStore } from "@/lib/store";
 import { useState } from "react";
@@ -23,11 +24,15 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <Leaf className="h-6 w-6 text-sage group-hover:text-leaf transition-colors" />
-              <span className="font-serif text-xl text-forest">
-                fern forest
-              </span>
+            <Link href="/" className="flex items-center group relative -ml-2">
+              <Image 
+                src="/images/logo.png" 
+                alt="Fern Forest Logo" 
+                width={150} 
+                height={45} 
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop nav */}
