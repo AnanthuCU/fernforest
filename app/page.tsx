@@ -60,7 +60,7 @@ export default function HomePage() {
 
             {/* Stats */}
             <div className="mt-14 pt-10 border-t border-white/10">
-              <div className="inline-grid grid-cols-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border border-white/10 overflow-hidden">
+              <div className="grid grid-cols-3 w-full max-w-[360px] rounded-2xl bg-white/[0.06] backdrop-blur-sm border border-white/10 overflow-hidden">
                 {[
                   { num: "7", label: "Varieties" },
                   { num: "6", label: "Plans" },
@@ -68,12 +68,12 @@ export default function HomePage() {
                 ].map((s, i) => (
                   <div
                     key={s.label}
-                    className={`flex flex-col items-center justify-center w-[120px] py-4 ${
+                    className={`flex flex-col items-center justify-center py-4 ${
                       i > 0 ? "border-l border-white/10" : ""
                     }`}
                   >
                     <p className="font-serif text-4xl text-lime leading-none">{s.num}</p>
-                    <p className="text-[10px] text-white/50 uppercase tracking-[0.15em] mt-1 font-medium">
+                    <p className="text-[9px] sm:text-[10px] text-white/50 uppercase tracking-[0.15em] mt-1 font-medium text-center w-full pl-[0.15em]">
                       {s.label}
                     </p>
                   </div>
