@@ -363,7 +363,7 @@ export const PLANS: Plan[] = [
     frequency: "2 × 80g mix/week",
     includes: ["Muscle Recovery Mix", "Pump & Performance Mix"],
     image:
-      "/images/microgreens/pumpperformancemix.png",
+      "/images/microgreens/performanceproplan.png",
   },
   {
     id: "fat-loss-reset-plan",

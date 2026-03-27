@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Leaf, Zap, Target } from "lucide-react";
+import { ArrowRight, CheckCircle2, Leaf, Zap, Target, Download } from "lucide-react";
 import { VARIETIES, MIXES, PLANS } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
 import { PlanCard } from "@/components/products/PlanCard";
@@ -30,11 +30,11 @@ export default function HomePage() {
 
             <p className="text-white/65 text-lg leading-relaxed mb-10 max-w-md">
               Hand-harvested microgreens, packed at peak nutrition. Fuel your
-              body with 7 individual varieties, 5 performance mixes, and 6
-              goal-oriented plans.
+              body with 7 individual varieties, 6 goal-oriented plans, and 5
+              performance mixes.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link
                 href="/#varieties"
                 className="inline-flex items-center justify-center gap-2 bg-lime text-forest rounded-full px-8 py-4 font-bold text-sm hover:bg-white transition-colors"
@@ -47,22 +47,38 @@ export default function HomePage() {
               >
                 View Plans
               </Link>
+              <a
+                href="/brochures/brochurefernforest.pdf"
+                download="Fern_Forest_Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white rounded-full px-8 py-4 font-semibold text-sm transition-colors border border-white/10 backdrop-blur-sm"
+              >
+                <Download className="h-4 w-4" /> Download Brochure
+              </a>
             </div>
 
             {/* Stats */}
-            <div className="flex gap-10 mt-14 pt-10 border-t border-white/10">
-              {[
-                { num: "7", label: "Varieties" },
-                { num: "5", label: "Mixes" },
-                { num: "6", label: "Plans" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <p className="font-serif text-3xl text-lime">{s.num}</p>
-                  <p className="text-xs text-white/40 uppercase tracking-wider mt-0.5">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-14 pt-10 border-t border-white/10">
+              <div className="inline-grid grid-cols-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border border-white/10 overflow-hidden">
+                {[
+                  { num: "7", label: "Varieties" },
+                  { num: "6", label: "Plans" },
+                  { num: "5", label: "Mixes" },
+                ].map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`flex flex-col items-center justify-center w-[120px] py-4 ${
+                      i > 0 ? "border-l border-white/10" : ""
+                    }`}
+                  >
+                    <p className="font-serif text-4xl text-lime leading-none">{s.num}</p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-[0.15em] mt-1 font-medium">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -244,16 +260,31 @@ export default function HomePage() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-bark text-white/60 py-10 px-4 sm:px-8 text-center text-sm">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <Leaf className="h-4 w-4 text-sage" />
-          <span className="font-serif text-white text-base">fern forest</span>
-          <span className="text-white/30">·</span>
-          <span>Fresh Microgreens</span>
+      <footer className="bg-bark text-white/60 py-16 px-4 sm:px-8 text-center text-sm">
+        <div className="flex flex-col items-center justify-center gap-8 max-w-lg mx-auto">
+          {/* Logo & Name */}
+          <div className="flex items-center justify-center gap-2">
+            <Leaf className="h-5 w-5 text-sage" />
+            <span className="font-serif text-white text-lg tracking-wide">fern forest</span>
+            <span className="text-white/30 hidden sm:inline">·</span>
+            <span className="hidden sm:inline tracking-wide">Fresh Microgreens</span>
+          </div>
+
+          {/* FSSAI License block */}
+          <div className="bg-white/5 rounded-lg border border-white/10 px-6 py-4 flex flex-col items-center shadow-sm">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-1.5 font-semibold">
+              Certified & Licensed
+            </span>
+            <span className="text-white/90 font-medium tracking-wider text-sm">
+              FSSAI Reg No: <span className="text-white font-bold ml-1">21226007000572</span>
+            </span>
+          </div>
+
+          {/* Copyright */}
+          <p className="text-white/30 text-xs">
+            © {new Date().getFullYear()} Fern Forest. All rights reserved. · Bengaluru, India
+          </p>
         </div>
-        <p className="text-white/30 text-xs">
-          © {new Date().getFullYear()} Fern Forest. All rights reserved. · Bengaluru, India
-        </p>
       </footer>
     </>
   );
