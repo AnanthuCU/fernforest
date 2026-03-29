@@ -5,10 +5,14 @@ import { VARIETIES, MIXES, PLANS } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
 import { PlanCard } from "@/components/products/PlanCard";
 import { Button } from "@/components/ui/Button";
+import { ScrollVideoHero } from "@/components/layout/ScrollVideoHero";
 
 export default function HomePage() {
   return (
     <>
+      {/* ─── SCROLL VIDEO INTRO ─── */}
+      <ScrollVideoHero src="/videos/timelapse.mp4" />
+
       {/* ─── HERO ─── */}
       <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 pt-16">
         {/* Left */}
@@ -68,9 +72,8 @@ export default function HomePage() {
                 ].map((s, i) => (
                   <div
                     key={s.label}
-                    className={`flex flex-col items-center justify-center py-4 ${
-                      i > 0 ? "border-l border-white/10" : ""
-                    }`}
+                    className={`flex flex-col items-center justify-center py-4 ${i > 0 ? "border-l border-white/10" : ""
+                      }`}
                   >
                     <p className="font-serif text-4xl text-lime leading-none">{s.num}</p>
                     <p className="text-[9px] sm:text-[10px] text-white/50 uppercase tracking-[0.15em] mt-1 font-medium text-center w-full pl-[0.15em]">

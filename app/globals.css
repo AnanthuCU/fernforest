@@ -56,3 +56,18 @@
 .group:hover .product-img-zoom {
   transform: scale(1.06);
 }
+
+/* ── Scroll Video Hero – navbar hides under video during immersive intro ── */
+/* The video panel is z-60, navbar is z-50, so navbar is naturally covered.  */
+/* We also disable smooth-scroll during video so scrubbing feels instant.    */
+html[data-video-active] {
+  scroll-behavior: auto;
+}
+html[data-video-active] header {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+header {
+  transition: opacity 0.5s ease;
+}
