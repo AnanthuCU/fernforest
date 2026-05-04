@@ -16,8 +16,8 @@ export const VARIETIES: Product[] = [
       "High in Vitamin C",
     ],
     sizes: [
-      { label: "40g", price: 75 },
-      { label: "80g", price: 140 },
+      { label: "30g", price: 75 },
+      { label: "60g", price: 140 },
     ],
     image:
       "/images/microgreens/whiteradish.png",
@@ -38,8 +38,8 @@ export const VARIETIES: Product[] = [
       "High in Vitamin C",
     ],
     sizes: [
-      { label: "40g", price: 90 },
-      { label: "80g", price: 180 },
+      { label: "30g", price: 90 },
+      { label: "60g", price: 180 },
     ],
     image:
       "/images/microgreens/chinaroseradish.png",
@@ -60,8 +60,8 @@ export const VARIETIES: Product[] = [
       "High in Vitamin C",
     ],
     sizes: [
-      { label: "40g", price: 115 },
-      { label: "80g", price: 230 },
+      { label: "30g", price: 115 },
+      { label: "60g", price: 230 },
     ],
     image:
       "/images/microgreens/purpleradish.png",
@@ -82,8 +82,8 @@ export const VARIETIES: Product[] = [
       "Vitamin E for recovery",
     ],
     sizes: [
-      { label: "40g", price: 110 },
-      { label: "80g", price: 220 },
+      { label: "30g", price: 110 },
+      { label: "60g", price: 220 },
     ],
     image:
       "/images/microgreens/sunflower.png",
@@ -104,8 +104,8 @@ export const VARIETIES: Product[] = [
       "Supports nitric oxide",
     ],
     sizes: [
-      { label: "40g", price: 85 },
-      { label: "80g", price: 150 },
+      { label: "30g", price: 85 },
+      { label: "60g", price: 150 },
     ],
     image:
       "/images/microgreens/greenamaranthus.png",
@@ -126,8 +126,8 @@ export const VARIETIES: Product[] = [
       "Supports nitric oxide",
     ],
     sizes: [
-      { label: "40g", price: 160 },
-      { label: "80g", price: 240 },
+      { label: "30g", price: 160 },
+      { label: "60g", price: 240 },
     ],
     image:
       "/images/microgreens/redgarnetamaranthus.png",
@@ -148,8 +148,8 @@ export const VARIETIES: Product[] = [
       "Pre-workout boost",
     ],
     sizes: [
-      { label: "40g", price: 190 },
-      { label: "80g", price: 360 },
+      { label: "30g", price: 190 },
+      { label: "60g", price: 360 },
     ],
     image:
       "/images/microgreens/beetroot.png",
@@ -170,8 +170,8 @@ export const VARIETIES: Product[] = [
       "Aids detox",
     ],
     sizes: [
-      { label: "40g", price: 220 },
-      { label: "80g", price: 390 },
+      { label: "30g", price: 220 },
+      { label: "60g", price: 390 },
     ],
     image:
       "/images/microgreens/broccoli.png",
@@ -192,8 +192,8 @@ export const VARIETIES: Product[] = [
       "Recovery support",
     ],
     sizes: [
-      { label: "40g", price: 140 },
-      { label: "80g", price: 270 },
+      { label: "30g", price: 140 },
+      { label: "60g", price: 270 },
     ],
     image:
       "/images/microgreens/bokchoy.png",
@@ -214,8 +214,8 @@ export const VARIETIES: Product[] = [
       "Digestive support",
     ],
     sizes: [
-      { label: "40g", price: 190 },
-      { label: "80g", price: 300 },
+      { label: "30g", price: 190 },
+      { label: "60g", price: 300 },
     ],
     image:
       "/images/microgreens/basil.png",
@@ -233,8 +233,8 @@ export const MIXES: Product[] = [
       "Radish + Broccoli + Bok Choy. Targets metabolism, detox, and gut reset for visible fat loss.",
     benefits: ["Metabolism boost", "Detox", "Gut Reset"],
     sizes: [
-      { label: "40g", price: 130 },
-      { label: "80g", price: 240 },
+      { label: "30g", price: 130 },
+      { label: "60g", price: 240 },
     ],
     image:
       "/images/microgreens/fatlossmix.png",
@@ -249,8 +249,8 @@ export const MIXES: Product[] = [
       "Sunflower + Amaranthus. Rich in plant protein with an iron recovery blend for post-workout.",
     benefits: ["Rich in Protein", "Iron Recovery Blend"],
     sizes: [
-      { label: "40g", price: 125 },
-      { label: "80g", price: 240 },
+      { label: "30g", price: 125 },
+      { label: "60g", price: 240 },
     ],
     image:
       "/images/microgreens/musclerecoverymix.png",
@@ -265,8 +265,8 @@ export const MIXES: Product[] = [
       "Beetroot + Radish + Amaranthus. Pre-workout boost with blood-flow increment for peak performance.",
     benefits: ["Pre-Workout Boost", "Blood-flow increment"],
     sizes: [
-      { label: "40g", price: 150 },
-      { label: "80g", price: 280 },
+      { label: "30g", price: 150 },
+      { label: "60g", price: 280 },
     ],
     image:
       "/images/microgreens/pumpperformancemix.png",
@@ -281,8 +281,8 @@ export const MIXES: Product[] = [
       "Basil + Sunflower + Bok Choy. Supports recovery and hormone balance for mental clarity.",
     benefits: ["Recovery", "Hormone Support"],
     sizes: [
-      { label: "40g", price: 140 },
-      { label: "80g", price: 260 },
+      { label: "30g", price: 140 },
+      { label: "60g", price: 260 },
     ],
     image:
       "/images/microgreens/stresshormonebalancemix.png",
@@ -297,8 +297,8 @@ export const MIXES: Product[] = [
       "Sunflower + Radish + Amaranthus + Broccoli + Beetroot. Daily performance and complete nutrition.",
     benefits: ["Daily Performance", "Complete Nutrition"],
     sizes: [
-      { label: "40g", price: 170 },
-      { label: "80g", price: 320 },
+      { label: "30g", price: 170 },
+      { label: "60g", price: 320 },
     ],
     image:
       "/images/microgreens/allinonemix.png",
@@ -317,7 +317,7 @@ export const PLANS: Plan[] = [
     description:
       "The perfect entry point. Build your nutrition habits with two targeted mixes delivered weekly.",
     price: 480,
-    frequency: "1 × 40g mix/week",
+    frequency: "1 × 30g mix/week",
     includes: ["Fat Loss Mix", "Muscle Recovery Mix"],
     image:
       "/images/microgreens/musclerecoverymix.png",
@@ -329,9 +329,9 @@ export const PLANS: Plan[] = [
     category: "plan",
     forWhom: "Regular Gym Members",
     description:
-      "Our most trusted plan. Step up to 80g servings with the performance mix for serious results.",
+      "Our most trusted plan. Step up to 60g servings with the performance mix for serious results.",
     price: 950,
-    frequency: "1 × 80g mix/week",
+    frequency: "1 × 60g mix/week",
     includes: ["Pump & Performance Mix"],
     featured: true,
     image:
@@ -346,7 +346,7 @@ export const PLANS: Plan[] = [
     description:
       "Targeted pre-workout nutrition to maximize your pump and endurance every session.",
     price: 550,
-    frequency: "1 × 40g mix/week",
+    frequency: "1 × 30g mix/week",
     includes: ["Pump & Performance Mix"],
     image:
       "/images/microgreens/pumpperformancemix.png",
@@ -360,7 +360,7 @@ export const PLANS: Plan[] = [
     description:
       "Premium dual-mix plan for athletes who demand both recovery and peak output.",
     price: 1950,
-    frequency: "2 × 80g mix/week",
+    frequency: "2 × 60g mix/week",
     includes: ["Muscle Recovery Mix", "Pump & Performance Mix"],
     image:
       "/images/microgreens/performanceproplan.png",
@@ -374,7 +374,7 @@ export const PLANS: Plan[] = [
     description:
       "An 8-week structured plan focused entirely on fat loss, detox, and gut reset.",
     price: 900,
-    frequency: "1 × 80g mix/week",
+    frequency: "1 × 60g mix/week",
     includes: ["Fat Loss Mix"],
     image:
       "/images/microgreens/fatlossmix.png",
@@ -388,7 +388,7 @@ export const PLANS: Plan[] = [
     description:
       "Complete daily nutrition in one blend — the busy professional's shortcut to peak health.",
     price: 1150,
-    frequency: "1 × 80g mix/week",
+    frequency: "1 × 60g mix/week",
     includes: ["All-in-One Performance Mix"],
     image:
       "/images/microgreens/allinonemix.png",
