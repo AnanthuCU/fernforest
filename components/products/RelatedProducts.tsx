@@ -31,7 +31,7 @@ export function RelatedProducts({
             </h2>
           </div>
           <Link
-            href="/products"
+            href="/#varieties"
             className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-leaf transition-colors"
           >
             View All <ArrowRight className="h-4 w-4" />
@@ -81,7 +81,7 @@ export function RelatedProducts({
 
         <div className="sm:hidden mt-8 text-center">
           <Link
-            href="/products"
+            href="/#varieties"
             className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-leaf transition-colors"
           >
             View All Products <ArrowRight className="h-4 w-4" />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2, ShoppingCart } from "lucide-react";
 import type { Product } from "@/types";
 import { formatPrice, cn } from "@/lib/utils";
@@ -36,7 +37,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-sage/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-forest/8 flex flex-col">
       {/* Image */}
-      <div className="relative h-48 overflow-hidden bg-parchment">
+      <Link href={`/products/${product.slug}`} className="relative h-48 overflow-hidden bg-parchment block">
         <Image
           src={product.image}
           alt={product.name}
@@ -54,12 +55,14 @@ export function ProductCard({ product }: ProductCardProps) {
             <Badge variant="gold">Best Seller</Badge>
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Body */}
       <div className="flex flex-col flex-1 p-5">
         <p className="text-xs text-gray-400 italic mb-0.5">{product.latinName}</p>
-        <h3 className="font-serif text-xl text-forest mb-2">{product.name}</h3>
+        <Link href={`/products/${product.slug}`}>
+          <h3 className="font-serif text-xl text-forest mb-2 group-hover:text-leaf transition-colors">{product.name}</h3>
+        </Link>
         <p className="text-sm text-gray-500 leading-relaxed mb-3 flex-1">
           {product.description}
         </p>
