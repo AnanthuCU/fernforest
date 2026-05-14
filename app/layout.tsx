@@ -5,6 +5,7 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fernforest.in"),
   title: "Fern Forest – Fresh Microgreens",
   description:
     "Premium hand-harvested microgreens delivered fresh. Shop individual varieties, performance mixes, and goal-oriented subscription plans.",
