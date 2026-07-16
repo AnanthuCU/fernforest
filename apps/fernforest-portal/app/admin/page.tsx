@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getApiBaseUrl } from "../../lib/api";
 
 interface Lead {
   id: string;
@@ -27,7 +28,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     async function loadData() {
-      const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const apiBaseUrl = getApiBaseUrl();
 
       try {
         const [leadRes, orderRes] = await Promise.all([
