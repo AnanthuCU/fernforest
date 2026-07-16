@@ -1,0 +1,28 @@
+{
+  "name": "fernforest-portal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/fernforest-portal",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{workspaceRoot}/dist/apps/fernforest-portal"],
+      "options": {
+        "outputPath": "dist/apps/fernforest-portal",
+        "root": "apps/fernforest-portal"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd apps/fernforest-portal && next dev -p 3000"
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "fernforest-portal:build"
+      }
+    }
+  }
+}

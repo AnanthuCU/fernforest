@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "serve": {
+      "cache": false
+    }
+  },
+  "plugins": [
+    "@nx/next/plugin"
+  ],
+  "analytics": true
+}

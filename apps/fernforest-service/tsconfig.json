@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": false,
+    "outDir": "../../dist/apps/fernforest-service"
+  },
+  "include": ["**/*.js"]
+}
