@@ -1,0 +1,26 @@
+Error: write EPIPE
+
+Messages from the log:
+DEBUG nx::native::telemetry: Telemetry service initialized successfully
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.252Z - New daemon starting from: c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest\node_modules\nx\dist\src\daemon\server\server.js
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.252Z - New daemon __dirname: c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest\node_modules\nx\dist\src\daemon\server
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.252Z - New daemon nxVersion: 23.1.0
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.253Z - New daemon getInstalledNxVersion(): 23.1.0
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.256Z - [Server] Starting outdated check interval (20ms)
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.258Z - Started listening on: \\.\pipe\nx\C:\Users\Admin\AppData\Local\Temp\81d8c1ee7c66ac324f69\d.sock
+DEBUG nx::native::watch::watcher: watching stopped origin=c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.280Z - [WATCHER]: Stopping the watcher for c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest (sources)
+DEBUG nx::native::watch::watcher: watching stopped origin=c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.280Z - Closed a connection. Number of open connections: 0
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.280Z - [WATCHER]: Stopping the watcher for c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest (outputs)
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.281Z - Server stopped because: "this process is no longer the current daemon (native)"
+Failed to flush telemetry: Flush reply channel closed
+DEBUG nx::native::watch::watcher: watching started origin=c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest
+[NX v23.1.0 Daemon Server] - 2026-07-22T07:12:34.316Z - [WATCHER]: Subscribed to changes within: c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest (native)
+[NX v23.1.0 Daemon Client] - 2026-07-22T07:12:34.328Z - [Messenger] Sending message type: REQUEST_PROJECT_GRAPH
+[NX v23.1.0 Daemon Client] - 2026-07-22T07:12:34.329Z - [Messenger] Message sent
+[NX v23.1.0 Daemon Client] - 2026-07-22T07:12:34.330Z - [Messenger] Socket error: write EPIPE
+
+
+
+More information: c:\Users\Admin\Documents\fernforest\fernforestapplication\fernforest\.nx\workspace-data\d\daemon.log

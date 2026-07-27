@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShoppingCart, Menu, X, Leaf } from "lucide-react";
 import { useCartStore } from "@/lib/store";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -17,6 +17,11 @@ export function Navbar() {
   const { getTotalItems, toggleCart } = useCartStore();
   const totalItems = getTotalItems();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -57,7 +62,7 @@ export function Navbar() {
               >
                 <ShoppingCart className="h-4 w-4" />
                 <span className="hidden sm:inline">Cart</span>
-                {totalItems > 0 && (
+                {mounted && totalItems > 0 && (
                   <span className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full bg-lime text-forest text-xs font-bold flex items-center justify-center animate-bounce-in">
                     {totalItems}
                   </span>

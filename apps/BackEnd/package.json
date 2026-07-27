@@ -1,0 +1,31 @@
+{
+  "name": "company-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon --legacy-watch --watch src --ext ts,json --exec tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:push": "drizzle-kit push:pg",
+    "db:migrate": "tsx src/db/migrate.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.30.10",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "pg": "^8.17.1",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.0.9",
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "^0.20.14",
+    "morgan": "^1.10.1",
+    "tsx": "^4.21.0"
+  }
+}

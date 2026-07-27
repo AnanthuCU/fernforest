@@ -1,0 +1,22 @@
+2026-01-28T05:23:19.360Z [INFO]: [object Object]
+2026-01-28T05:23:27.472Z [INFO]: [object Object]
+2026-01-28T05:24:39.206Z [INFO]: {"name":"Deekshith","email":"deeksaahisstsash@test.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:24:39.207Z [INFO]: lalal
+2026-01-28T05:24:42.219Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@test.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:24:42.220Z [INFO]: lalal
+2026-01-28T05:28:36.985Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@test.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:28:36.986Z [INFO]: lalal
+2026-01-28T05:29:17.429Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@test.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:29:17.429Z [INFO]: lalal
+2026-01-28T05:31:24.447Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@test.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:31:24.448Z [INFO]: lalal
+2026-01-28T05:31:27.275Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@tsest.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:31:27.276Z [INFO]: lalal
+2026-01-28T05:32:12.414Z [INFO]: {"name":"Deekshith","email":"deeksaahisstssash@tsest.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:32:12.414Z [INFO]: lalal
+2026-01-28T05:32:21.794Z [INFO]: {"name":"Deekshith","email":"kama@tsest.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:32:21.794Z [INFO]: lalal
+2026-01-28T05:34:19.597Z [INFO]: {"name":"Deekshith","email":"kama@tsest.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:34:19.598Z [INFO]: lalal
+2026-01-28T05:34:35.714Z [INFO]: {"name":"Deekshith","email":"kamaa@tsest.com","price":"9.99","is_delivered":true,"description":"Dummy employee record","barcode":"EMP0001234","status":"activa"}
+2026-01-28T05:34:35.715Z [INFO]: lalal

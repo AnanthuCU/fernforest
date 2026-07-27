@@ -12,35 +12,34 @@
     }
   ],
   "fileMap": {
-    "nonProjectFiles": [],
     "projectFileMap": {
       "fernforest-portal": [
         {
           "file": "apps/fernforest-portal/.next/app-build-manifest.json",
-          "hash": "14850317219978365451"
+          "hash": "17020893016651096648"
         },
         {
           "file": "apps/fernforest-portal/.next/build-manifest.json",
-          "hash": "14232275190722831399"
+          "hash": "4022198718087905130"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/images/+5LpZ3jjIySzgAOs0hVAk+aongeACiQwigSbGvUR59Q=/60.1784028524095.gUfdHZEp9Nj2pNBlxZxFXjLn9BmHdt2THy8IoLUPv+E=.webp",
           "hash": "9253943201462115313"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/2B5M4MsvnN9Qqr+W+qRfnr1-eM2JmIgUw1cgrTdLAcg=/60.1784187791767.1Gcc2S1WDHrLtXX2UhCi+DuhAwbO5AJxFUWEeDPdoME=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/2B5M4MsvnN9Qqr+W+qRfnr1-eM2JmIgUw1cgrTdLAcg=/60.1784704483912.1Gcc2S1WDHrLtXX2UhCi+DuhAwbO5AJxFUWEeDPdoME=.webp",
           "hash": "13937408143173454675"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/7MJ1U8b4vIp7y6Pj1FSmIaBI0dDlDcEr2GrRaDxRgvw=/60.1784187792157.352lnjOJ3G+NFjxpv+YWKB8XqnBWYEaGaDtwkR5HL6Y=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/7MJ1U8b4vIp7y6Pj1FSmIaBI0dDlDcEr2GrRaDxRgvw=/60.1784704483745.352lnjOJ3G+NFjxpv+YWKB8XqnBWYEaGaDtwkR5HL6Y=.webp",
           "hash": "8868896296012864881"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/8Z1+6BlmaCBKaqpITO5yURSvS4jDk1YcTxkMpe5eZOE=/60.1784187822579.4auT6RuwYEQi4dJekFDYO7UWVWcuFlGn1Efj0+y4VQc=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/8Z1+6BlmaCBKaqpITO5yURSvS4jDk1YcTxkMpe5eZOE=/60.1784704484269.4auT6RuwYEQi4dJekFDYO7UWVWcuFlGn1Efj0+y4VQc=.webp",
           "hash": "15659655185911179869"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/Aa9KnenXExaLS+IO9p9O41x8XYkj-9OYI+Vb1uflDDA=/60.1784187827369.Pz73QFuJckgUtBn9MPA-pjaBfQHqgmGUdXquK78A27g=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/Aa9KnenXExaLS+IO9p9O41x8XYkj-9OYI+Vb1uflDDA=/60.1784704485171.Pz73QFuJckgUtBn9MPA-pjaBfQHqgmGUdXquK78A27g=.webp",
           "hash": "4519620790938135715"
         },
         {
@@ -52,7 +51,7 @@
           "hash": "13836915703751678682"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/EYFPJJYfP2oBLTfHToRDQ77kZ-cXv-lAGm-K7N0KIkw=/60.1784187824618.jLSN2pmuVlOI3CASDWFC0uYfdfnU+PXjgEqv-f20iJg=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/EYFPJJYfP2oBLTfHToRDQ77kZ-cXv-lAGm-K7N0KIkw=/60.1784704484656.jLSN2pmuVlOI3CASDWFC0uYfdfnU+PXjgEqv-f20iJg=.webp",
           "hash": "5728405163059317056"
         },
         {
@@ -60,7 +59,7 @@
           "hash": "4673741147462730104"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/HvZwzamjpwcLd4Jh2bqKR95JODQa1Jb95C07WrOa+Zo=/60.1784187792465.C7JyVDqeP+Na8eRKlTcpcMlsCqyh7Y-qo2Opq5XTw38=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/HvZwzamjpwcLd4Jh2bqKR95JODQa1Jb95C07WrOa+Zo=/60.1784704484412.C7JyVDqeP+Na8eRKlTcpcMlsCqyh7Y-qo2Opq5XTw38=.webp",
           "hash": "18094920961294151896"
         },
         {
@@ -76,7 +75,7 @@
           "hash": "13420163967532659142"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/R5hsGy9TnHGCAgrZFORW05pAZC112yA7o5cPofrN4M4=/60.1784187822712.klhDtk94B3arF9fFyFCRTaRO3vV4BSw250a-mlJ+huo=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/R5hsGy9TnHGCAgrZFORW05pAZC112yA7o5cPofrN4M4=/60.1784704484583.klhDtk94B3arF9fFyFCRTaRO3vV4BSw250a-mlJ+huo=.webp",
           "hash": "14491276616635040310"
         },
         {
@@ -96,7 +95,7 @@
           "hash": "2900315814079483569"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/XiwvzUtPjuIu7jFW45i6DPuLNgNl88BGOwpzItNfh-I=/60.1784187791835.DmrXJvJ8cwjr5RMPss-YZZwEQXqXKet9Yt1S2yjfI+s=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/XiwvzUtPjuIu7jFW45i6DPuLNgNl88BGOwpzItNfh-I=/60.1784704484067.DmrXJvJ8cwjr5RMPss-YZZwEQXqXKet9Yt1S2yjfI+s=.webp",
           "hash": "1844813748981748816"
         },
         {
@@ -104,15 +103,15 @@
           "hash": "18174639397415609162"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/eFYku8SbKL3zuUELsdDvrj3giXRPIJCtvi0g+7kaQDY=/60.1784187824903.Wnmwapn8BB+dZNaGuwi3YSygZvObVR0vOlS3AEwfqnU=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/eFYku8SbKL3zuUELsdDvrj3giXRPIJCtvi0g+7kaQDY=/60.1784704484845.Wnmwapn8BB+dZNaGuwi3YSygZvObVR0vOlS3AEwfqnU=.webp",
           "hash": "7388198963742948495"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/g6UINztZDrbG21pUHzIIDVVlYLL2nDsp4l82pISgR0g=/60.1784187824993.fI3XWVflw6hdk82ui8dKAYLqsngAk8fO5i-6F8XwasQ=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/g6UINztZDrbG21pUHzIIDVVlYLL2nDsp4l82pISgR0g=/60.1784704484948.fI3XWVflw6hdk82ui8dKAYLqsngAk8fO5i-6F8XwasQ=.webp",
           "hash": "5116195868224919325"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/lNJ9zD-useMSWdDF3qjZvvaRv2pnUrPk9TKdfNDpFOs=/60.1784187822501.rhFfcT5pfFgYOH7tp4BT5PiVj1KR67S4qAuRIJmKb4Q=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/lNJ9zD-useMSWdDF3qjZvvaRv2pnUrPk9TKdfNDpFOs=/60.1784704484181.rhFfcT5pfFgYOH7tp4BT5PiVj1KR67S4qAuRIJmKb4Q=.webp",
           "hash": "6670144700784128963"
         },
         {
@@ -128,7 +127,7 @@
           "hash": "4690854196534529965"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/rcK4HB5CYA9EKtPojDOuyW6u9httFLNU8a6IMhRpCJM=/60.1784187792049.7RKOBjLrTU5D3f8HUd9Po0UV2xNpPNKuDCSZIlUNsxc=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/rcK4HB5CYA9EKtPojDOuyW6u9httFLNU8a6IMhRpCJM=/60.1784704483646.7RKOBjLrTU5D3f8HUd9Po0UV2xNpPNKuDCSZIlUNsxc=.webp",
           "hash": "7876486012470704083"
         },
         {
@@ -136,23 +135,23 @@
           "hash": "5662679966697088130"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/szJCWGrC0+1BK8HDB+CeHCug3ZL5JEO2Xav5OhIwNpM=/60.1784187824710.K1NAj6o9rrIbex7kr9Hq0z4EQ5LraZnm2OLFoo-EL9w=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/szJCWGrC0+1BK8HDB+CeHCug3ZL5JEO2Xav5OhIwNpM=/60.1784704484744.K1NAj6o9rrIbex7kr9Hq0z4EQ5LraZnm2OLFoo-EL9w=.webp",
           "hash": "10193836031905226515"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/vKRqYwHly1z9vtlPCUu1IL82vezeIdMMVa12AaJAuoo=/60.1784187825657.TpCMwMq1KXbM6dPvZ-6y1pujPMB0g3Kygv4prRzkW4o=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/vKRqYwHly1z9vtlPCUu1IL82vezeIdMMVa12AaJAuoo=/60.1784704485070.TpCMwMq1KXbM6dPvZ-6y1pujPMB0g3Kygv4prRzkW4o=.webp",
           "hash": "6775524661625473800"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/xAXaP6cdNnjKXFsYtCdZCLgtMAjsnKzVnQqbjfeMRW0=/60.1784187791939.LcyoK55+iNwlWjraU-rfx1OiI6G1+fQawCUBAUYVyVg=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/xAXaP6cdNnjKXFsYtCdZCLgtMAjsnKzVnQqbjfeMRW0=/60.1784704483545.LcyoK55+iNwlWjraU-rfx1OiI6G1+fQawCUBAUYVyVg=.webp",
           "hash": "8385370613031772669"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/y2lhIGxfi5i4wQSa5BdhPRStkZrZ3BY-zaZSTRfCung=/60.1784187791585.Jvyum2f7pEMchwAUEaFIG8ybReAMZXwLWeztPIcCOwg=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/y2lhIGxfi5i4wQSa5BdhPRStkZrZ3BY-zaZSTRfCung=/60.1784704483488.Jvyum2f7pEMchwAUEaFIG8ybReAMZXwLWeztPIcCOwg=.webp",
           "hash": "3342616745055468174"
         },
         {
-          "file": "apps/fernforest-portal/.next/cache/images/zI1zuWH5IH-N5N0jSgcuQfhtq3QexsW6tQsi7zjMKSs=/60.1784187791382.V2lKc71jD91L-7HSkawBMuEirihKTwOZrAiayO5iHBc=.webp",
+          "file": "apps/fernforest-portal/.next/cache/images/zI1zuWH5IH-N5N0jSgcuQfhtq3QexsW6tQsi7zjMKSs=/60.1784704483307.V2lKc71jD91L-7HSkawBMuEirihKTwOZrAiayO5iHBc=.webp",
           "hash": "12537771667541963127"
         },
         {
@@ -161,26 +160,50 @@
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-development/1.pack.gz",
-          "hash": "10074688055973229016"
+          "hash": "10520180146404353280"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-development/2.pack.gz",
-          "hash": "3721567449461036084"
+          "hash": "11323553002256266782"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-development/3.pack.gz",
+          "hash": "9195688157013636186"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-development/4.pack.gz",
+          "hash": "11995909349728332649"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-development/5.pack.gz",
+          "hash": "7548602063580982717"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-development/index.pack.gz",
-          "hash": "11591107958737060879"
+          "hash": "8298688126893625289"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-development/index.pack.gz.old",
-          "hash": "6098597766218070440"
+          "hash": "3200675074079411163"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-production/0.pack",
-          "hash": "6544038329040091075"
+          "hash": "4210638451979130799"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-production/1.pack",
+          "hash": "5980164174574315289"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-production/2.pack",
+          "hash": "14962782501533756420"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/client-production/index.pack",
+          "hash": "16028202165005080027"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/client-production/index.pack.old",
           "hash": "1261433254952131160"
         },
         {
@@ -193,26 +216,46 @@
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-development/0.pack.gz",
-          "hash": "9401258664583576144"
+          "hash": "16700446397536662635"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-development/1.pack.gz",
-          "hash": "11633621565566438413"
+          "hash": "6664311755373307800"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/server-development/2.pack.gz",
+          "hash": "10293343543924051128"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/server-development/3.pack.gz",
+          "hash": "16615409941630405636"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-development/index.pack.gz",
-          "hash": "7117402515190259871"
+          "hash": "17518979276623205766"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-development/index.pack.gz.old",
-          "hash": "13216356183045139513"
+          "hash": "8946844315993926945"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-production/0.pack",
-          "hash": "8313687939902302782"
+          "hash": "3797629167330701449"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/server-production/1.pack",
+          "hash": "17268687472289868913"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/server-production/2.pack",
+          "hash": "4080462524747977040"
         },
         {
           "file": "apps/fernforest-portal/.next/cache/webpack/server-production/index.pack",
+          "hash": "2237927086203732631"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/cache/webpack/server-production/index.pack.old",
           "hash": "16382345053927282910"
         },
         {
@@ -225,11 +268,11 @@
         },
         {
           "file": "apps/fernforest-portal/.next/server/app-paths-manifest.json",
-          "hash": "4048070022777486729"
+          "hash": "14838109112933494842"
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/admin/page.js",
-          "hash": "5400813918322625581",
+          "hash": "11287641292377992602",
           "deps": [
             [
               "npm:next",
@@ -239,11 +282,11 @@
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/admin/page_client-reference-manifest.js",
-          "hash": "10753800543262879854"
+          "hash": "3634282745089074714"
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/checkout/page.js",
-          "hash": "7175869764335916845",
+          "hash": "17036911440212312512",
           "deps": [
             [
               "npm:next",
@@ -253,11 +296,11 @@
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/checkout/page_client-reference-manifest.js",
-          "hash": "12303555401794337923"
+          "hash": "8502194561049354960"
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/page.js",
-          "hash": "7852307185460181163",
+          "hash": "15722109827366418018",
           "deps": [
             [
               "npm:next",
@@ -267,7 +310,7 @@
         },
         {
           "file": "apps/fernforest-portal/.next/server/app/page_client-reference-manifest.js",
-          "hash": "1248429984464590941"
+          "hash": "15135280912111202659"
         },
         {
           "file": "apps/fernforest-portal/.next/server/interception-route-rewrite-manifest.js",
@@ -299,87 +342,87 @@
         },
         {
           "file": "apps/fernforest-portal/.next/server/server-reference-manifest.js",
-          "hash": "8576686185333434840"
+          "hash": "926076913922683553"
         },
         {
           "file": "apps/fernforest-portal/.next/server/server-reference-manifest.json",
-          "hash": "2802413735762128237"
+          "hash": "7053049921491577652"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/@swc.js",
-          "hash": "15014725117605621663"
+          "hash": "15432219644347449021"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/clsx.js",
-          "hash": "6914100092889591029"
+          "hash": "17145152923377308850"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/goober.js",
-          "hash": "12156321141728177077"
+          "hash": "726125762341263245"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/lucide-react.js",
-          "hash": "17039151873360075843"
+          "hash": "2078149426560977658"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/next.js",
-          "hash": "7498435068542172582"
+          "hash": "16016948601434218921"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/react-hot-toast.js",
-          "hash": "8159356463156463354"
+          "hash": "13142953700737519389"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/tailwind-merge.js",
-          "hash": "17631090705650703820"
+          "hash": "8264554734344536219"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/use-sync-external-store.js",
-          "hash": "8988731498819028243"
+          "hash": "6356974222518691124"
         },
         {
           "file": "apps/fernforest-portal/.next/server/vendor-chunks/zustand.js",
-          "hash": "13168789740829581076"
+          "hash": "13118264722134621204"
         },
         {
           "file": "apps/fernforest-portal/.next/server/webpack-runtime.js",
-          "hash": "7009609398593878362"
+          "hash": "5423389818427823830"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/app-pages-internals.js",
-          "hash": "14635562086872718910"
+          "hash": "2107549374342813044"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/app/admin/page.js",
-          "hash": "15815825781770741183"
+          "hash": "12182624395241123441"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/app/checkout/page.js",
-          "hash": "2858420399956272813"
+          "hash": "1480837977099052891"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/app/layout.js",
-          "hash": "3237743230400709234"
+          "hash": "14045156417459336417"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/app/page.js",
-          "hash": "3312140999261686353"
+          "hash": "4377287991902495019"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/main-app.js",
-          "hash": "3634084890153748690"
+          "hash": "13429148373679346770"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/polyfills.js",
-          "hash": "4811650334542602226"
+          "hash": "1955602371502312040"
         },
         {
           "file": "apps/fernforest-portal/.next/static/chunks/webpack.js",
-          "hash": "14972067701686493046"
+          "hash": "4203461222482247411"
         },
         {
           "file": "apps/fernforest-portal/.next/static/css/app/layout.css",
-          "hash": "15781324884604300636"
+          "hash": "3805407130766711994"
         },
         {
           "file": "apps/fernforest-portal/.next/static/development/_buildManifest.js",
@@ -390,40 +433,40 @@
           "hash": "17018243955171961484"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/0015a82466344a6a.webpack.hot-update.json",
+          "file": "apps/fernforest-portal/.next/static/webpack/1db5f7f350acc1fb.webpack.hot-update.json",
           "hash": "13405125561290911638"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/3493849f5982e8be.webpack.hot-update.json",
+          "file": "apps/fernforest-portal/.next/static/webpack/500610a537807f43.webpack.hot-update.json",
           "hash": "8773209185785337189"
+        },
+        {
+          "file": "apps/fernforest-portal/.next/static/webpack/5fb5fa758a84e8d3.webpack.hot-update.json",
+          "hash": "13405125561290911638"
         },
         {
           "file": "apps/fernforest-portal/.next/static/webpack/633457081244afec._.hot-update.json",
           "hash": "10481436618516908015"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/9393ac825f62cdc9.webpack.hot-update.json",
-          "hash": "13405125561290911638"
+          "file": "apps/fernforest-portal/.next/static/webpack/app/layout.500610a537807f43.hot-update.js",
+          "hash": "1406719287612856315"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/app/layout.3493849f5982e8be.hot-update.js",
-          "hash": "3082532984862462129"
+          "file": "apps/fernforest-portal/.next/static/webpack/webpack.1db5f7f350acc1fb.hot-update.js",
+          "hash": "3773177557236025473"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/webpack.0015a82466344a6a.hot-update.js",
-          "hash": "12298102955338926779"
+          "file": "apps/fernforest-portal/.next/static/webpack/webpack.500610a537807f43.hot-update.js",
+          "hash": "12081553988556725487"
         },
         {
-          "file": "apps/fernforest-portal/.next/static/webpack/webpack.3493849f5982e8be.hot-update.js",
-          "hash": "8313485845125658674"
-        },
-        {
-          "file": "apps/fernforest-portal/.next/static/webpack/webpack.9393ac825f62cdc9.hot-update.js",
-          "hash": "3419079239608937072"
+          "file": "apps/fernforest-portal/.next/static/webpack/webpack.5fb5fa758a84e8d3.hot-update.js",
+          "hash": "2947206442613912667"
         },
         {
           "file": "apps/fernforest-portal/.next/trace",
-          "hash": "2800181572652747646"
+          "hash": "4679202581016416733"
         },
         {
           "file": "apps/fernforest-portal/.next/types/app/admin/page.ts",
@@ -441,7 +484,7 @@
         },
         {
           "file": "apps/fernforest-portal/.next/types/app/layout.ts",
-          "hash": "6810540834647711042",
+          "hash": "2056710344616864013",
           "deps": [
             "npm:next"
           ]
@@ -459,7 +502,7 @@
         },
         {
           "file": "apps/fernforest-portal/app/admin/page.tsx",
-          "hash": "604962661723026126",
+          "hash": "6982965635371564033",
           "deps": [
             "npm:react"
           ]
@@ -611,7 +654,7 @@
         },
         {
           "file": "apps/fernforest-portal/lib/api.ts",
-          "hash": "15676198541675445222"
+          "hash": "4049446017609946136"
         },
         {
           "file": "apps/fernforest-portal/lib/data.ts",
@@ -873,7 +916,7 @@
         },
         {
           "file": "apps/fernforest-service/data/orders.json",
-          "hash": "13655343565331846142"
+          "hash": "13677353234488956962"
         },
         {
           "file": "apps/fernforest-service/package-lock.json",
@@ -931,7 +974,7 @@
         },
         {
           "file": ".gitignore",
-          "hash": "3583032915008877917"
+          "hash": "12886519393363450735"
         },
         {
           "file": "README.md",
@@ -996,7 +1039,8 @@
           "hash": "4265760886365564559"
         }
       ]
-    }
+    },
+    "nonProjectFiles": []
   },
   "externalNodesHash": "1029690239878936500"
 }
