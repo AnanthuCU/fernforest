@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "npm run dev:portal",
     "dev:portal": "cd apps/fernforest-portal && next dev -p 3000",
-    "dev:service": "node apps/fernforest-service/server.js",
-    "dev:all": "concurrently \"npm run dev:portal\" \"npm run dev:service\"",
+    "dev:service": "node apps/BackEnd/server.js",
+    "dev:backend": "node apps/BackEnd/server.js",
+    "migrate:backend": "node apps/BackEnd/src/migrate.js",
+    "dev:all": "concurrently \"npm run dev:portal\" \"npm run dev:backend\"",
     "build": "cd apps/fernforest-portal && next build",
     "build:portal": "cd apps/fernforest-portal && next build",
-    "build:service": "node apps/fernforest-service/server.js",
-    "test:service": "node --test apps/fernforest-service/tests/**/*.test.js",
+    "build:service": "node apps/BackEnd/server.js",
     "start": "next start",
     "lint": "next lint"
   },
