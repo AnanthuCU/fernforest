@@ -5,21 +5,41 @@ export function getApiBaseUrl() {
 }
 
 async function postJson(path: string, body: unknown) {
-  const response = await fetch(`${getApiBaseUrl()}${path}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
+  const url = `${getApiBaseUrl()}${path}`;
 
-  const data = await response.json().catch(() => ({}));
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-  if (!response.ok) {
-    throw new Error(data.message || 'Request failed');
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(
+        data.message || `Server responded with status ${response.status}`
+      );
+    }
+
+    return data;
+  } catch (error: any) {
+    if (error.name === 'AbortError') {
+      throw new Error('Connection timed out. Please check your network and try again.');
+    }
+    if (error.message && !error.message.includes('fetch')) {
+      throw error;
+    }
+    throw new Error('Unable to connect to backend server. Please make sure the server is running.');
   }
-
-  return data;
 }
 
 export async function submitLead(payload: Record<string, unknown>) {
@@ -29,3 +49,4 @@ export async function submitLead(payload: Record<string, unknown>) {
 export async function submitOrder(payload: Record<string, unknown>) {
   return postJson('/api/orders', payload);
 }
+
