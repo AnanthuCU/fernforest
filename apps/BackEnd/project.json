@@ -1,0 +1,29 @@
+{
+  "name": "fernforest-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/BackEnd",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{workspaceRoot}/dist/apps/BackEnd"],
+      "options": {
+        "outputPath": "dist/apps/BackEnd",
+        "main": "apps/BackEnd/server.js",
+        "tsConfig": "apps/BackEnd/tsconfig.json"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node apps/BackEnd/server.js"
+      }
+    },
+    "migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node apps/BackEnd/src/utils/migrate.js"
+      }
+    }
+  }
+}

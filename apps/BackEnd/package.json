@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "migrate": "node src/migrate.js"
+    "migrate": "node src/utils/migrate.js",
+    "test": "node --test tests/health.test.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
