@@ -1,25 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getApiBaseUrl } from "../../lib/api";
-
-interface Lead {
-  id: string;
-  name: string;
-  phone?: string;
-  email?: string;
-  createdAt: string;
-}
-
-interface Order {
-  id: string;
-  name: string;
-  phone: string;
-  address: string;
-  notes?: string;
-  total?: number;
-  createdAt: string;
-}
+import type { Lead, Order } from "@fernforest/shared-types";
 
 export default function AdminPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -28,12 +10,10 @@ export default function AdminPage() {
 
   useEffect(() => {
     async function loadData() {
-      const apiBaseUrl = getApiBaseUrl();
-
       try {
         const [leadRes, orderRes] = await Promise.all([
-          fetch(`${apiBaseUrl}/api/admin/leads`),
-          fetch(`${apiBaseUrl}/api/admin/orders`),
+          fetch("/api/admin/leads"),
+          fetch("/api/admin/orders"),
         ]);
 
         const leadData = await leadRes.json();

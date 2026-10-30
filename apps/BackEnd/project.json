@@ -4,25 +4,28 @@
   "sourceRoot": "apps/BackEnd",
   "projectType": "application",
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{workspaceRoot}/dist/apps/BackEnd"],
-      "options": {
-        "outputPath": "dist/apps/BackEnd",
-        "main": "apps/BackEnd/server.js",
-        "tsConfig": "apps/BackEnd/tsconfig.json"
-      }
-    },
     "serve": {
       "executor": "nx:run-commands",
+      "continuous": true,
       "options": {
-        "command": "node apps/BackEnd/server.js"
+        "command": "node server.js",
+        "cwd": "apps/BackEnd"
       }
     },
-    "migrate": {
+    "migrate-db": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node apps/BackEnd/src/utils/migrate.js"
+        "command": "node src/utils/migrate.js",
+        "cwd": "apps/BackEnd"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["{projectRoot}/**/*", "!{projectRoot}/.env"],
+      "options": {
+        "command": "node --test tests/",
+        "cwd": "apps/BackEnd"
       }
     }
   }

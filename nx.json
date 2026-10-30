@@ -6,14 +6,25 @@
   },
   "targetDefaults": {
     "build": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "lint": {
       "cache": true
     },
-    "serve": {
-      "cache": false
+    "test": {
+      "cache": true
     }
   },
   "plugins": [
-    "@nx/next/plugin"
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "devTargetName": "serve",
+        "startTargetName": "start"
+      }
+    }
   ],
-  "analytics": true
+  "analytics": false
 }

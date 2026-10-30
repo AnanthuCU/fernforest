@@ -1,3 +1,5 @@
+import type { NewLead, NewOrder } from "@fernforest/shared-types";
+
 const DEFAULT_API_BASE_URL = 'http://localhost:4000';
 
 export function getApiBaseUrl() {
@@ -42,11 +44,11 @@ async function postJson(path: string, body: unknown) {
   }
 }
 
-export async function submitLead(payload: Record<string, unknown>) {
+export async function submitLead(payload: NewLead) {
   return postJson('/api/leads', payload);
 }
 
-export async function submitOrder(payload: Record<string, unknown>) {
+export async function submitOrder(payload: NewOrder) {
   return postJson('/api/orders', payload);
 }
 
