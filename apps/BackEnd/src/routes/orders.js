@@ -1,5 +1,6 @@
 const express = require('express');
 const { submitOrder, getAdminOrders } = require('../controllers/orderController');
+const requireAdmin = require('../middleware/requireAdmin');
 
 const router = express.Router();
 
@@ -7,6 +8,6 @@ const router = express.Router();
 router.post('/orders', submitOrder);
 
 // GET /api/admin/orders - List all orders
-router.get('/admin/orders', getAdminOrders);
+router.get('/admin/orders', requireAdmin, getAdminOrders);
 
 module.exports = router;

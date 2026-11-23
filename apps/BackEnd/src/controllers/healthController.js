@@ -12,10 +12,10 @@ async function getHealth(req, res, next) {
       dbTime,
     });
   } catch (error) {
+    console.error('Health check DB error:', error);
     res.status(500).json({
       status: 'error',
       message: 'Backend running, DB connection error',
-      error: error.message,
     });
   }
 }

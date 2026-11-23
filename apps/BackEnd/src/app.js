@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-// CORS setup - allow all origins in development or configured host
+// CORS setup - only allow the configured frontend origin(s), comma-separated
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:3000')
+  .split(',')
+  .map((origin) => origin.trim());
+
 app.use(
   cors({
-    origin: '*',
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })

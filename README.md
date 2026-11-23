@@ -14,11 +14,31 @@ A production-ready Next.js 14 e-commerce web app for Fern Forest microgreens.
 
 ## 🚀 Local Development
 
+This is an Nx monorepo using npm workspaces. One install at the root installs every app.
+
 ```bash
 npm install
-npm run dev
-# → http://localhost:3000
+
+# Backend needs Postgres + env vars
+cp apps/BackEnd/.env.example apps/BackEnd/.env              # fill in DATABASE_URL etc.
+cp apps/fernforest-portal/.env.example apps/fernforest-portal/.env.local
+npm run migrate:backend
+
+npm run dev:all      # portal → http://localhost:3000, API → http://localhost:4000
 ```
+
+| Command                    | What it does                              |
+|----------------------------|-------------------------------------------|
+| `npm run dev`              | Portal only                               |
+| `npm run dev:backend`      | Backend API only                          |
+| `npm run dev:all`          | Both, in parallel                         |
+| `npm run build`            | Production build of the portal (cached)   |
+| `npm run lint` / `npm test`| Lint the portal / run all tests (cached)  |
+| `npm run graph`            | Open the Nx project graph                 |
+
+The admin dashboard at `/admin` asks for the `ADMIN_USER` / `ADMIN_PASSWORD` set in the portal env, and the backend's `/api/admin/*` routes require `ADMIN_API_TOKEN`.
+
+Backend in Docker: `cd apps/BackEnd && docker compose up --build` (runs migrations, then starts the API).
 
 ---
 
@@ -38,8 +58,9 @@ git push -u origin main
 
 1. Go to [vercel.com](https://vercel.com) → **Add New Project**
 2. Import your GitHub repo `fernforest`
-3. Framework: **Next.js** (auto-detected)
-4. Click **Deploy** — that's it!
+3. Set **Root Directory** to `apps/fernforest-portal` (Framework: **Next.js**, auto-detected)
+4. Under **Environment Variables**, add `NEXT_PUBLIC_API_URL`, `ADMIN_API_TOKEN`, `ADMIN_USER` and `ADMIN_PASSWORD`
+5. Click **Deploy**
 
 ### Step 3 — Connect `fernforest.in` (GoDaddy → Vercel)
 
@@ -63,33 +84,22 @@ git push -u origin main
 
 ```
 fernforest/
-├── app/
-│   ├── layout.tsx          # Root layout (Navbar, CartDrawer, Toasts)
-│   ├── page.tsx            # Homepage (Hero + Varieties + Mixes + Plans)
-│   ├── globals.css         # Tailwind + custom styles
-│   └── checkout/
-│       └── page.tsx        # Checkout form + WhatsApp order
-├── components/
-│   ├── layout/
-│   │   └── Navbar.tsx
-│   ├── cart/
-│   │   └── CartDrawer.tsx  # Slide-in cart drawer
-│   ├── products/
-│   │   ├── ProductCard.tsx # Variety & mix cards with size selector
-│   │   └── PlanCard.tsx    # Monthly plan cards
-│   └── ui/
-│       ├── Button.tsx
-│       └── Badge.tsx
-├── lib/
-│   ├── data.ts             # All products, mixes & plans data
-│   ├── store.ts            # Zustand cart state
-│   └── utils.ts            # cn(), formatPrice(), WhatsApp URL builder
-├── types/
-│   └── index.ts            # TypeScript interfaces
-├── next.config.ts
-├── tailwind.config.ts
-├── vercel.json
-└── package.json
+├── apps/
+│   ├── fernforest-portal/      # Next.js storefront (deployed to Vercel)
+│   │   ├── app/                # Pages, /admin dashboard, /api routes
+│   │   ├── components/         # Layout, cart, product and UI components
+│   │   ├── lib/                # Product data, Zustand cart store, API client
+│   │   ├── types/              # Frontend-only TypeScript types
+│   │   ├── middleware.ts       # Basic auth for /admin
+│   │   └── vercel.json
+│   └── BackEnd/                # Express + PostgreSQL API (leads, orders)
+│       ├── src/                # routes → controllers → services → db
+│       ├── tests/
+│       └── Dockerfile
+├── libs/
+│   └── shared-types/           # Lead/Order types shared by portal and backend
+├── nx.json
+└── package.json                # npm workspaces root
 ```
 
 ---
