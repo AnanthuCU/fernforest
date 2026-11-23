@@ -21,7 +21,6 @@ async function submitOrder(req, res, next) {
     return res.status(500).json({
       success: false,
       message: 'We could not save your order right now. Please try again.',
-      error: error.message,
     });
   }
 }

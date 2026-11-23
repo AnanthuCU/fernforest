@@ -1,6 +1,8 @@
-const pool = require('./db');
+const { createPool } = require('./db');
 
 async function migrate() {
+  // Schema changes use the direct (unpooled) connection; fall back to the pooled one.
+  const pool = createPool(process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL);
   console.log('Running database migrations...');
   const client = await pool.connect();
   try {

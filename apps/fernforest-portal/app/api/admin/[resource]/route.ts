@@ -1,23 +1,21 @@
-import { getApiBaseUrl } from "@/lib/api";
+import { getLeads } from "@/lib/server/leads";
+import { getOrders } from "@/lib/server/orders";
 
-const ALLOWED_RESOURCES = new Set(["leads", "orders"]);
-
-// Proxies admin requests to the backend, adding the admin token on the server
-// so it never reaches the browser. Access to this route is gated by middleware.ts.
+// GET /api/admin/leads and /api/admin/orders. Access is gated by middleware.ts.
 export async function GET(_request: Request, { params }: { params: { resource: string } }) {
-  if (!ALLOWED_RESOURCES.has(params.resource)) {
+  try {
+    if (params.resource === "leads") {
+      return Response.json({ success: true, leads: await getLeads() });
+    }
+    if (params.resource === "orders") {
+      return Response.json({ success: true, orders: await getOrders() });
+    }
     return Response.json({ success: false, message: "Not found" }, { status: 404 });
+  } catch (error) {
+    console.error(`Error fetching ${params.resource}:`, error);
+    return Response.json(
+      { success: false, message: `Failed to retrieve ${params.resource}` },
+      { status: 500 }
+    );
   }
-
-  const token = process.env.ADMIN_API_TOKEN;
-  if (!token) {
-    return Response.json({ success: false, message: "Admin API is not configured" }, { status: 503 });
-  }
-
-  const response = await fetch(`${getApiBaseUrl()}/api/admin/${params.resource}`, {
-    headers: { Authorization: `Bearer ${token}` },
-    cache: "no-store",
-  });
-
-  return Response.json(await response.json().catch(() => ({})), { status: response.status });
 }

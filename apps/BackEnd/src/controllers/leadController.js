@@ -21,7 +21,6 @@ async function createLead(req, res, next) {
     return res.status(500).json({
       success: false,
       message: 'Unable to save lead right now',
-      error: error.message,
     });
   }
 }

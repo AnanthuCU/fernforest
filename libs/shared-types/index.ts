@@ -1,5 +1,5 @@
-// API contract shared between the portal and the backend.
-// Shapes match the rows returned by apps/BackEnd/src/services.
+// API contract shared between the portal's pages and its API routes.
+// Shapes match the rows returned by apps/fernforest-portal/lib/server.
 
 export interface NewLead {
   name: string;

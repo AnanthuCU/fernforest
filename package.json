@@ -11,6 +11,7 @@
     "dev:portal": "nx serve fernforest-portal",
     "dev:backend": "nx serve fernforest-backend",
     "dev:all": "nx run-many -t serve",
+    "migrate": "nx run fernforest-portal:migrate",
     "migrate:backend": "nx migrate-db fernforest-backend",
     "test:backend": "nx test fernforest-backend",
     "build": "nx build fernforest-portal",
@@ -29,5 +30,9 @@
     "next": "14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@neon/config": "^1.14.4",
+    "@neon/env": "^2.1.7"
   }
 }

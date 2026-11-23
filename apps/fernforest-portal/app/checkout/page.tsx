@@ -7,7 +7,7 @@ import { submitOrder } from "@/lib/api";
 import type { OrderFormData } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, MessageCircle, User, Phone, MapPin, FileText, AlertCircle } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MessageCircle, User, Phone, MapPin, FileText } from "lucide-react";
 
 type FieldError = Partial<Record<keyof OrderFormData, string>>;
 
@@ -32,7 +32,6 @@ export default function CheckoutPage() {
     notes: "",
   });
   const [errors, setErrors] = useState<FieldError>({});
-  const [apiError, setApiError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -41,7 +40,6 @@ export default function CheckoutPage() {
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    setApiError(null);
     if (errors[name as keyof OrderFormData]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -49,7 +47,6 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setApiError(null);
     const errs = validate(form);
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
@@ -57,6 +54,10 @@ export default function CheckoutPage() {
     }
 
     setIsSubmitting(true);
+
+    // Open the tab during the click so popup blockers allow it; it is pointed
+    // at WhatsApp once the backend save finishes.
+    const whatsappTab = window.open("", "_blank");
 
     try {
       // Attempt to save order to database via backend
@@ -74,12 +75,16 @@ export default function CheckoutPage() {
         })),
         total: total,
       });
-    } catch (error: any) {
+    } catch (error) {
       console.warn("Backend order save failed (offline or server error). Proceeding with WhatsApp order flow:", error);
     } finally {
       // Always complete order via WhatsApp, clear cart, and mark submitted
       const url = getWhatsAppURL(items, form);
-      window.open(url, "_blank");
+      if (whatsappTab) {
+        whatsappTab.location.href = url;
+      } else {
+        window.location.href = url;
+      }
       setSubmitted(true);
       clearCart();
       setIsSubmitting(false);
@@ -242,17 +247,6 @@ export default function CheckoutPage() {
                 <li>We'll confirm and arrange fresh delivery!</li>
               </ol>
             </div>
-
-            {apiError && (
-              <div className="bg-red-50 border border-red-200 text-red-700 rounded-2xl p-4 flex items-start gap-3 text-sm">
-                <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold">Unable to save order</p>
-                  <p className="text-xs text-red-600 mt-0.5">{apiError}</p>
-                </div>
-              </div>
-            )}
-
 
             <button
               type="submit"

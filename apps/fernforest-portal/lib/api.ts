@@ -1,19 +1,13 @@
 import type { NewLead, NewOrder } from "@fernforest/shared-types";
 
-const DEFAULT_API_BASE_URL = 'http://localhost:4000';
+// Calls this app's own API routes (app/api/*), so no base URL is needed.
+async function postJson(url: string, body: unknown) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-export function getApiBaseUrl() {
-  return process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_BASE_URL;
-}
-
-async function postJson(path: string, body: unknown) {
-  const url = `${getApiBaseUrl()}${path}`;
-
+  let response: Response;
   try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-
-    const response = await fetch(url, {
+    response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,27 +15,24 @@ async function postJson(path: string, body: unknown) {
       body: JSON.stringify(body),
       signal: controller.signal,
     });
-
-    clearTimeout(timeoutId);
-
-    const data = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
-      throw new Error(
-        data.message || `Server responded with status ${response.status}`
-      );
-    }
-
-    return data;
-  } catch (error: any) {
-    if (error.name === 'AbortError') {
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') {
       throw new Error('Connection timed out. Please check your network and try again.');
     }
-    if (error.message && !error.message.includes('fetch')) {
-      throw error;
-    }
-    throw new Error('Unable to connect to backend server. Please make sure the server is running.');
+    throw new Error('Unable to reach the server. Please check your connection and try again.');
+  } finally {
+    clearTimeout(timeoutId);
   }
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(
+      data.message || `Server responded with status ${response.status}`
+    );
+  }
+
+  return data;
 }
 
 export async function submitLead(payload: NewLead) {
