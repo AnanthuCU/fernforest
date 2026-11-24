@@ -50,7 +50,3 @@ export function getWhatsAppURL(items: CartItem[], form: OrderFormData): string {
   const message = buildWhatsAppMessage(items, form);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 }
-
-export function getCartTotal(items: CartItem[]): number {
-  return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-}

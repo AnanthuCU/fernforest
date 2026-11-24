@@ -56,11 +56,11 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
 
     // Open the tab during the click so popup blockers allow it; it is pointed
-    // at WhatsApp once the backend save finishes.
+    // at WhatsApp once the order save finishes.
     const whatsappTab = window.open("", "_blank");
 
     try {
-      // Attempt to save order to database via backend
+      // Save the order to the database (/api/orders)
       await submitOrder({
         name: form.name,
         phone: form.phone,
@@ -76,7 +76,7 @@ export default function CheckoutPage() {
         total: total,
       });
     } catch (error) {
-      console.warn("Backend order save failed (offline or server error). Proceeding with WhatsApp order flow:", error);
+      console.warn("Order save failed (offline or server error). Proceeding with WhatsApp order flow:", error);
     } finally {
       // Always complete order via WhatsApp, clear cart, and mark submitted
       const url = getWhatsAppURL(items, form);

@@ -1163,17 +1163,5 @@ export const MIX_NUTRITION: Record<string, MixNutrition> = {
   },
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// HELPER: get nutrition for any product by ID
-// ─────────────────────────────────────────────────────────────────────────────
-
-export function getVarietyNutrition(id: string): VarietyNutrition | undefined {
-  return VARIETY_NUTRITION[id];
-}
-
-export function getMixNutrition(id: string): MixNutrition | undefined {
-  return MIX_NUTRITION[id];
-}
-
 // Plans are combinations of mixes — their nutrition is derived from the mix components.
 // No separate plan nutrition object is needed; reference the relevant mix IDs.
