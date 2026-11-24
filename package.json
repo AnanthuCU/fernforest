@@ -8,22 +8,15 @@
   ],
   "scripts": {
     "dev": "nx serve fernforest-portal",
-    "dev:portal": "nx serve fernforest-portal",
-    "dev:backend": "nx serve fernforest-backend",
-    "dev:all": "nx run-many -t serve",
     "migrate": "nx run fernforest-portal:migrate",
-    "migrate:backend": "nx migrate-db fernforest-backend",
-    "test:backend": "nx test fernforest-backend",
     "build": "nx build fernforest-portal",
     "start": "nx start fernforest-portal",
     "lint": "nx lint fernforest-portal",
-    "test": "nx run-many -t test",
     "graph": "nx graph"
   },
   "devDependencies": {
     "@nx/js": "^23.1.0",
     "@nx/next": "^23.1.0",
-    "@nx/node": "^23.1.0",
     "nx": "^23.1.0"
   },
   "overrides": {

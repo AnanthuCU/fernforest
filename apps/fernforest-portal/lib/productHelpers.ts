@@ -1,5 +1,5 @@
 import type { Product } from "@/types";
-import { VARIETIES, MIXES, ALL_PRODUCTS } from "./data";
+import { ALL_PRODUCTS } from "./data";
 import {
   VARIETY_NUTRITION,
   MIX_NUTRITION,
@@ -17,37 +17,22 @@ export interface EnrichedProduct extends Product {
   isMix: boolean;
 }
 
-/** Get a single enriched product by slug */
-export function getProductBySlug(slug: string): EnrichedProduct | null {
-  const product = ALL_PRODUCTS.find((p) => p.slug === slug);
-  if (!product) return null;
-
+function enrich(product: Product): EnrichedProduct {
   const isVariety = product.category === "variety";
   const isMix = product.category === "mix";
-
   const nutrition: VarietyNutrition | MixNutrition | null =
     isVariety
       ? VARIETY_NUTRITION[product.id] ?? null
       : isMix
         ? MIX_NUTRITION[product.id] ?? null
         : null;
-
   return { ...product, nutrition, isVariety, isMix };
 }
 
-/** Get all enriched products */
-export function getAllEnrichedProducts(): EnrichedProduct[] {
-  return ALL_PRODUCTS.map((product) => {
-    const isVariety = product.category === "variety";
-    const isMix = product.category === "mix";
-    const nutrition: VarietyNutrition | MixNutrition | null =
-      isVariety
-        ? VARIETY_NUTRITION[product.id] ?? null
-        : isMix
-          ? MIX_NUTRITION[product.id] ?? null
-          : null;
-    return { ...product, nutrition, isVariety, isMix };
-  });
+/** Get a single enriched product by slug */
+export function getProductBySlug(slug: string): EnrichedProduct | null {
+  const product = ALL_PRODUCTS.find((p) => p.slug === slug);
+  return product ? enrich(product) : null;
 }
 
 /** Get related products (same category, excluding current) */
@@ -64,17 +49,7 @@ export function getRelatedProducts(
 
   // Shuffle and limit
   const shuffled = related.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, limit).map((product) => {
-    const isVariety = product.category === "variety";
-    const isMix = product.category === "mix";
-    const nutrition: VarietyNutrition | MixNutrition | null =
-      isVariety
-        ? VARIETY_NUTRITION[product.id] ?? null
-        : isMix
-          ? MIX_NUTRITION[product.id] ?? null
-          : null;
-    return { ...product, nutrition, isVariety, isMix };
-  });
+  return shuffled.slice(0, limit).map(enrich);
 }
 
 /** Get all product slugs (for generateStaticParams) */
