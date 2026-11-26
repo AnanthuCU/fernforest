@@ -25,7 +25,7 @@ function validate(form: OrderFormData): FieldError {
 }
 
 export default function CheckoutPage() {
-  const { items, getTotalPrice, clearCart } = useCartStore();
+  const { items, getTotalPrice, clearCart, hasHydrated } = useCartStore();
   const total = getTotalPrice();
   const { data: session, isPending: sessionPending } = useSession();
   const userId = session?.user.id;
@@ -138,6 +138,15 @@ export default function CheckoutPage() {
       setIsSubmitting(false);
     }
   };
+
+  // Wait for the saved cart before deciding it's empty.
+  if (!hasHydrated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-16" aria-busy="true">
+        <span className="h-8 w-8 rounded-full border-2 border-sage border-t-transparent animate-spin" />
+      </div>
+    );
+  }
 
   if (items.length === 0 && !submitted) {
     return (
