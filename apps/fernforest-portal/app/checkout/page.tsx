@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { Address } from "@fernforest/shared-types";
 import { useCartStore } from "@/lib/store";
-import { formatPrice, getWhatsAppURL } from "@/lib/utils";
-import { submitOrder } from "@/lib/api";
+import { cn, formatPrice, getWhatsAppURL } from "@/lib/utils";
+import { fetchAddresses, fetchProfile, submitOrder } from "@/lib/api";
+import { useSession } from "@/lib/auth-client";
+import { isValidIndianMobile } from "@/lib/validation";
 import type { OrderFormData } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, MessageCircle, User, Phone, MapPin, FileText } from "lucide-react";
+import { ArrowLeft, ShoppingBag, MessageCircle, User, Phone, MapPin, FileText, Plus } from "lucide-react";
 
 type FieldError = Partial<Record<keyof OrderFormData, string>>;
 
@@ -15,7 +18,7 @@ function validate(form: OrderFormData): FieldError {
   const errors: FieldError = {};
   if (!form.name.trim()) errors.name = "Name is required";
   if (!form.phone.trim()) errors.phone = "Phone number is required";
-  else if (!/^[6-9]\d{9}$/.test(form.phone.replace(/\s/g, "")))
+  else if (!isValidIndianMobile(form.phone))
     errors.phone = "Enter a valid 10-digit Indian mobile number";
   if (!form.address.trim()) errors.address = "Delivery address is required";
   return errors;
@@ -24,6 +27,8 @@ function validate(form: OrderFormData): FieldError {
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart } = useCartStore();
   const total = getTotalPrice();
+  const { data: session, isPending: sessionPending } = useSession();
+  const userId = session?.user.id;
 
   const [form, setForm] = useState<OrderFormData>({
     name: "",
@@ -34,6 +39,48 @@ export default function CheckoutPage() {
   const [errors, setErrors] = useState<FieldError>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Signed-in customers: saved addresses and pre-filled details.
+  const [savedAddresses, setSavedAddresses] = useState<Address[]>([]);
+  const [selectedAddressId, setSelectedAddressId] = useState<number | "new">("new");
+  const [saveAddress, setSaveAddress] = useState(true);
+  const prefilledFor = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!userId || prefilledFor.current === userId) return;
+    prefilledFor.current = userId;
+
+    Promise.all([fetchProfile(), fetchAddresses()])
+      .then(([profile, addresses]) => {
+        setSavedAddresses(addresses);
+        const preferred = addresses.find((a) => a.isDefault) ?? addresses[0];
+        // Fill only fields the customer hasn't started typing in.
+        setForm((prev) => ({
+          ...prev,
+          name: prev.name || preferred?.name || profile.name,
+          phone: prev.phone || preferred?.phone || profile.phone || "",
+          address: prev.address || preferred?.address || "",
+        }));
+        if (preferred) setSelectedAddressId(preferred.id);
+      })
+      .catch((error) => {
+        // Not fatal: the customer can still type their details.
+        console.warn("Could not load saved details for checkout:", error);
+      });
+  }, [userId]);
+
+  const selectAddress = (id: number | "new") => {
+    setSelectedAddressId(id);
+    setErrors((prev) => ({ ...prev, address: undefined }));
+    const saved = savedAddresses.find((a) => a.id === id);
+    setForm((prev) =>
+      saved
+        ? { ...prev, name: saved.name, phone: saved.phone, address: saved.address }
+        : { ...prev, address: "" }
+    );
+  };
+
+  const usingSavedAddress = selectedAddressId !== "new";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -74,6 +121,7 @@ export default function CheckoutPage() {
           size: item.size,
         })),
         total: total,
+        saveAddress: Boolean(userId) && !usingSavedAddress && saveAddress,
       });
     } catch (error) {
       console.warn("Order save failed (offline or server error). Proceeding with WhatsApp order flow:", error);
@@ -149,6 +197,15 @@ export default function CheckoutPage() {
                 <User className="h-5 w-5 text-sage" /> Your Details
               </h2>
 
+              {!sessionPending && !userId && (
+                <p className="rounded-xl bg-cream border border-parchment px-4 py-3 text-sm text-gray-600">
+                  <Link href="/login?next=/checkout" className="font-semibold text-leaf hover:text-forest">
+                    Sign in
+                  </Link>{" "}
+                  to use your saved addresses and keep track of your orders, or continue as a guest.
+                </p>
+              )}
+
               {/* Name */}
               <div>
                 <label className="block text-sm font-semibold text-bark mb-1.5">
@@ -202,18 +259,80 @@ export default function CheckoutPage() {
                   <MapPin className="h-3.5 w-3.5 inline mr-1" />
                   Delivery Address *
                 </label>
-                <textarea
-                  name="address"
-                  value={form.address}
-                  onChange={handleChange}
-                  placeholder="Flat No, Building, Street, Area, Bengaluru — PIN"
-                  rows={3}
-                  className={`w-full rounded-xl border px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-sage/50 transition ${
-                    errors.address ? "border-red-400 bg-red-50" : "border-parchment bg-cream"
-                  }`}
-                />
+
+                {savedAddresses.length > 0 && (
+                  <div role="radiogroup" aria-label="Saved addresses" className="space-y-2 mb-3">
+                    {savedAddresses.map((saved) => (
+                      <label
+                        key={saved.id}
+                        className={cn(
+                          "flex gap-3 rounded-xl border px-4 py-3 text-sm cursor-pointer transition",
+                          selectedAddressId === saved.id
+                            ? "border-sage bg-lime/10"
+                            : "border-parchment bg-cream hover:border-sage/50"
+                        )}
+                      >
+                        <input
+                          type="radio"
+                          name="saved-address"
+                          checked={selectedAddressId === saved.id}
+                          onChange={() => selectAddress(saved.id)}
+                          className="mt-1 accent-forest"
+                        />
+                        <span className="min-w-0">
+                          <span className="font-semibold text-forest">{saved.label}</span>
+                          {saved.isDefault && <span className="text-xs text-gray-400"> · Default</span>}
+                          <span className="block text-gray-500 break-words">{saved.address}</span>
+                        </span>
+                      </label>
+                    ))}
+                    <label
+                      className={cn(
+                        "flex items-center gap-3 rounded-xl border px-4 py-3 text-sm cursor-pointer transition",
+                        !usingSavedAddress
+                          ? "border-sage bg-lime/10"
+                          : "border-parchment bg-cream hover:border-sage/50"
+                      )}
+                    >
+                      <input
+                        type="radio"
+                        name="saved-address"
+                        checked={!usingSavedAddress}
+                        onChange={() => selectAddress("new")}
+                        className="accent-forest"
+                      />
+                      <Plus className="h-4 w-4 text-sage" />
+                      <span className="font-semibold text-forest">Use a different address</span>
+                    </label>
+                  </div>
+                )}
+
+                {!usingSavedAddress && (
+                  <textarea
+                    name="address"
+                    value={form.address}
+                    onChange={handleChange}
+                    placeholder="Flat No, Building, Street, Area, Bengaluru — PIN"
+                    rows={3}
+                    className={`w-full rounded-xl border px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-sage/50 transition ${
+                      errors.address ? "border-red-400 bg-red-50" : "border-parchment bg-cream"
+                    }`}
+                  />
+                )}
                 {errors.address && (
                   <p className="text-red-500 text-xs mt-1">{errors.address}</p>
+                )}
+
+                {userId && !usingSavedAddress && (
+                  <label className="mt-2 flex items-center gap-2 text-sm text-bark">
+                    <input
+                      type="checkbox"
+                      checked={saveAddress}
+                      onChange={(e) => setSaveAddress(e.target.checked)}
+                      className="h-4 w-4 accent-forest"
+                    />
+                    Save this address to my account
+                  </label>
                 )}
               </div>
 
