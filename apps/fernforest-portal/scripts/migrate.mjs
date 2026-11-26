@@ -52,6 +52,89 @@ try {
     );
   `);
 
+  // Customer login (Better Auth). Table and column names are Better Auth's
+  // defaults, so they are quoted camelCase; "phone" is our additional field.
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS "user" (
+      "id" TEXT PRIMARY KEY,
+      "name" TEXT NOT NULL,
+      "email" TEXT NOT NULL UNIQUE,
+      "emailVerified" BOOLEAN NOT NULL DEFAULT FALSE,
+      "image" TEXT,
+      "phone" TEXT,
+      "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+  `);
+
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS "session" (
+      "id" TEXT PRIMARY KEY,
+      "expiresAt" TIMESTAMPTZ NOT NULL,
+      "token" TEXT NOT NULL UNIQUE,
+      "ipAddress" TEXT,
+      "userAgent" TEXT,
+      "userId" TEXT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
+      "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS session_user_id_idx ON "session"("userId");
+  `);
+
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS "account" (
+      "id" TEXT PRIMARY KEY,
+      "accountId" TEXT NOT NULL,
+      "providerId" TEXT NOT NULL,
+      "userId" TEXT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
+      "accessToken" TEXT,
+      "refreshToken" TEXT,
+      "idToken" TEXT,
+      "accessTokenExpiresAt" TIMESTAMPTZ,
+      "refreshTokenExpiresAt" TIMESTAMPTZ,
+      "scope" TEXT,
+      "password" TEXT,
+      "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS account_user_id_idx ON "account"("userId");
+  `);
+
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS "verification" (
+      "id" TEXT PRIMARY KEY,
+      "identifier" TEXT NOT NULL,
+      "value" TEXT NOT NULL,
+      "expiresAt" TIMESTAMPTZ NOT NULL,
+      "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS verification_identifier_idx ON "verification"("identifier");
+  `);
+
+  // Saved delivery addresses for signed-in customers
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS customer_addresses (
+      id SERIAL PRIMARY KEY,
+      user_id TEXT NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
+      label TEXT NOT NULL DEFAULT 'Home',
+      name TEXT NOT NULL,
+      phone TEXT NOT NULL,
+      address TEXT NOT NULL,
+      is_default BOOLEAN NOT NULL DEFAULT FALSE,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS customer_addresses_user_id_idx ON customer_addresses(user_id);
+    CREATE UNIQUE INDEX IF NOT EXISTS customer_addresses_one_default_idx
+      ON customer_addresses(user_id) WHERE is_default;
+  `);
+
+  // Orders placed while signed in belong to that customer; guest orders stay NULL.
+  await client.query(`
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS user_id TEXT REFERENCES "user"("id") ON DELETE SET NULL;
+    CREATE INDEX IF NOT EXISTS orders_user_id_idx ON orders(user_id);
+  `);
+
   await client.query("COMMIT");
   console.log("Database migrations completed successfully!");
 } catch (error) {

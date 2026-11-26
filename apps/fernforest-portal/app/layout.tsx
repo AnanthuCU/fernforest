@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { CartHydrator } from "@/components/cart/CartHydrator";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <CartHydrator />
         <Navbar />
         <CartDrawer />
         <main>{children}</main>

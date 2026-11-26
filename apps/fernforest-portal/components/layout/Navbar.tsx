@@ -6,6 +6,7 @@ import { ShoppingCart, Menu, X, Leaf } from "lucide-react";
 import { useCartStore } from "@/lib/store";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { AccountMenu } from "./AccountMenu";
 
 const NAV_LINKS = [
   { href: "/#varieties", label: "Varieties" },
@@ -50,6 +51,8 @@ export function Navbar() {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
+              <AccountMenu />
+
               <button
                 onClick={toggleCart}
                 aria-label="Open cart"

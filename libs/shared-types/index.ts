@@ -39,3 +39,34 @@ export interface Order extends Omit<NewOrder, "items"> {
   createdAt: string;
   items: OrderItem[];
 }
+
+/** Body of POST /api/orders. `saveAddress` only applies to signed-in customers. */
+export interface OrderRequest extends NewOrder {
+  saveAddress?: boolean;
+}
+
+export interface CustomerProfile {
+  id: string;
+  name: string;
+  email: string;
+  image: string | null;
+  phone: string | null;
+}
+
+export interface ProfileUpdate {
+  name?: string;
+  phone?: string | null;
+}
+
+export interface NewAddress {
+  label?: string;
+  name: string;
+  phone: string;
+  address: string;
+  isDefault?: boolean;
+}
+
+export interface Address extends Required<NewAddress> {
+  id: number;
+  createdAt: string;
+}

@@ -4,17 +4,20 @@ import { getPool } from "./db";
 /**
  * Create an order with its items inside a DB transaction.
  */
-export async function createOrder({ name, phone, address, notes, items = [], total = 0 }: NewOrder): Promise<Order> {
+export async function createOrder(
+  { name, phone, address, notes, items = [], total = 0 }: NewOrder,
+  userId: string | null = null
+): Promise<Order> {
   const client = await getPool().connect();
 
   try {
     await client.query("BEGIN");
 
     const orderResult = await client.query(
-      `INSERT INTO orders (name, phone, address, notes, total)
-       VALUES ($1, $2, $3, $4, $5)
+      `INSERT INTO orders (name, phone, address, notes, total, user_id)
+       VALUES ($1, $2, $3, $4, $5, $6)
        RETURNING id, name, phone, address, notes, total, created_at AS "createdAt"`,
-      [name.trim(), phone.trim(), address.trim(), notes ? notes.trim() : null, total]
+      [name.trim(), phone.trim(), address.trim(), notes ? notes.trim() : null, total, userId]
     );
 
     const order = orderResult.rows[0];
@@ -49,14 +52,27 @@ export async function createOrder({ name, phone, address, notes, items = [], tot
 }
 
 /**
- * Retrieve all orders with their line items, most recent first.
+ * Retrieve all orders with their line items, most recent first (admin).
  */
 export async function getOrders(): Promise<Order[]> {
+  return queryOrders("", []);
+}
+
+/**
+ * Retrieve one customer's orders with their line items, most recent first.
+ */
+export async function getOrdersForUser(userId: string): Promise<Order[]> {
+  return queryOrders("WHERE user_id = $1", [userId]);
+}
+
+async function queryOrders(where: string, params: unknown[]): Promise<Order[]> {
   const pool = getPool();
   const ordersResult = await pool.query(
     `SELECT id, name, phone, address, notes, total, created_at AS "createdAt"
      FROM orders
-     ORDER BY created_at DESC`
+     ${where}
+     ORDER BY created_at DESC`,
+    params
   );
 
   const orders: Order[] = ordersResult.rows.map((order) => ({ ...order, items: [] }));
